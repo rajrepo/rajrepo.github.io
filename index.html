@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html ng-app="myApp">
     <head>
@@ -47,7 +46,7 @@
     	    <p>
     		Temperature - Max:{{maxTemp}}{{actualSymbol}}  Min:{{minTemp}}{{actualSymbol}} &nbsp Weather Forecast:{{weather}} <img src={{imgUrl}}>
     		<br>
-    		<small>[click here for <a href ng-click="convertTemp()">{{wantedSymbol}}</a>]</small>
+    		<small><a href ng-click="convertTemp()">[click here for {{wantedSymbol}}</a>]</small>
     		<div class="text-medium">
     		{{result}}</div>
     		
