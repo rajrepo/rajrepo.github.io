@@ -22,7 +22,7 @@ function WeatherCtrl($scope, $http,localStorageService) {
   $scope.getLocation = function(val) {
 	  
     console.log("GetLocation");
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+    return $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: val,
         key:'AIzaSyB7RB4GQKl0_NgKo0-6ksmA4epAf-lS1bM',
