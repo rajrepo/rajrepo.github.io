@@ -20,7 +20,6 @@ function WeatherCtrl($scope, $http,localStorageService) {
   };
   $scope.getLocation = function(val) {
 	  
-    //console.log("GetLocation");
     return $http.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: val,
@@ -35,14 +34,14 @@ function WeatherCtrl($scope, $http,localStorageService) {
         				});
         
       });
-      //console.log(addresses);
+
       return addresses;
     });
   };
   
   $scope.getWeather = function(){
-	  localStorageService.set('lastModel',$scope.searchTxt);
-	//console.log($scope.searchTxt.location.location); 
+	localStorageService.set('lastModel',$scope.searchTxt);
+
 	
 	var geometry = $scope.searchTxt.location.location;
 	$scope.submitClick = true;
@@ -58,15 +57,14 @@ function WeatherCtrl($scope, $http,localStorageService) {
 		  params:{lat:geometry.lat,lon:geometry.lng,cnt:'1',units:units,appid:'b646314260002de9dfe1e8d59cc5010b'}
 		}).
 	    success(function(data, status) {
-	    	
-	    	//console.log(data.list);
-	    	var temp = data.list[0].temp;
+	 	
+	   	var temp = data.list[0].temp;
 	    	var weather = data.list[0].weather;
 	    	
 	    	$scope.maxTemp = temp.max;
 	    	$scope.minTemp = temp.min;
 	        $scope.weather = weather[0].description.toUpperCase();
-	        //console.log(weather[0].id);
+	
 	        $scope.umbrella = true;
 	        if(weather[0].id < 600 )
 	        	{
