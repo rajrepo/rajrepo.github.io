@@ -8,8 +8,7 @@ function WeatherCtrl($scope, $http,localStorageService) {
 
   $scope.umbrella = false;
   
-  $scope.umbrellaList = [200,201,202,230,231,232,500,501,502,503,504,511,520,521,522];
-  
+
   $scope.init = function()
   {
 	  
@@ -69,7 +68,7 @@ function WeatherCtrl($scope, $http,localStorageService) {
 	        $scope.weather = weather[0].description.toUpperCase();
 	        //console.log(weather[0].id);
 	        $scope.umbrella = true;
-	        if($scope.umbrellaList.indexOf(weather[0].id) > -1)
+	        if(weather[0].id < 600 )
 	        	{
    		
 	        		$scope.result = "Please take your umbrella buddy!!";
